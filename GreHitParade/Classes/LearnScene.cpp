@@ -88,7 +88,9 @@ bool LearnScene::init()
     btn->setTitleColor(Color3B::BLACK);
     btn->setTitleFontName(Constants::FONT_REGULAR);
     btn->setTitleFontSize(12);
-    btn->setTitleText("I know this word");
+    btn->setTitleText("I know this word.");
+    btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
+    btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 5, 5);
     btn = ui::Button::create("ChoiceBg", "ChoiceSelectedBg", "", ui::Widget::TextureResType::PLIST);
@@ -99,7 +101,9 @@ bool LearnScene::init()
     btn->setTitleColor(Color3B::BLACK);
     btn->setTitleFontName(Constants::FONT_REGULAR);
     btn->setTitleFontSize(12);
-    btn->setTitleText("Not yet");
+    btn->setTitleText("Not yet!");
+    btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
+    btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 6, 6);
     

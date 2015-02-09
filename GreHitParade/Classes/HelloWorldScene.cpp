@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "Constants.h"
 #include "LearnScene.h"
+#include "TestScene.h"
 
 USING_NS_CC;
 
@@ -72,6 +73,8 @@ void HelloWorld::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 auto transition = TransitionPageTurn::create(0.25f, LearnScene::createScene(), false);
                 Director::getInstance()->replaceScene(transition);
             } else {
+                auto transition = TransitionPageTurn::create(0.25f, TestScene::createScene(), false);
+                Director::getInstance()->replaceScene(transition);
             }
             break;
             
