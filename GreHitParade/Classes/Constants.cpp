@@ -274,8 +274,10 @@ void Constants::initWordData()
             for(auto it = wordsConfig.cbegin(); it != wordsConfig.cend(); ++it)
             { // put all words into pools
                 poolVect.push_back(Value(it->first));
-                poolTestVect.push_back(Value(it->first));
             }
+            std::shuffle(poolVect.begin(), poolVect.end(), std::default_random_engine((uint32_t)time(0)));
+            poolTestVect.assign(poolVect.cbegin(), poolVect.cend());
+            
             // First batch of new words
             pullNewWordToLearn();
             pullNewWordToTest();
