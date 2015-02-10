@@ -33,6 +33,9 @@ public:
     // colors
     static const cocos2d::Color4B BACKGROUND_COLOR;
     
+    // show ad time
+    static time_t lastShowAdTime;
+    
     // static functions
     static std::string getNextWordToLearn();
     static std::string getNextWordToTest();
@@ -43,6 +46,7 @@ public:
     static size_t getTotalWordCount();
     static size_t getTotalTestCount();
     static void initWordData();
+    static void showAd();
     
 private:
     static bool pullNewWordToLearn();

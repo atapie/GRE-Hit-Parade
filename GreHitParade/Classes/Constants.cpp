@@ -6,6 +6,7 @@
 //
 
 #include "Constants.h"
+#include "ObjCCalls.h"
 
 USING_NS_CC;
 using namespace std;
@@ -30,6 +31,9 @@ const string Constants::FONT_EXTRA_BOLD_ITALIC = "fonts/OpenSans-ExtraBoldItalic
 
 // colors
 const Color4B Constants::BACKGROUND_COLOR(231, 240, 211, 255);
+
+// show ad time
+time_t Constants::lastShowAdTime = time(0);
 
 // static functions
 string Constants::getNextWordToLearn()
@@ -338,4 +342,15 @@ int Constants::dayUntilNextTest()
         if(result > wData["daysRemaining"].asInt()) result = wData["daysRemaining"].asInt();
     }
     return result;
+}
+
+void Constants::showAd()
+{
+    time_t currTime = time(0);
+    if(currTime - lastShowAdTime > 300) {
+        lastShowAdTime = currTime;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        ObjCCalls::showAd();
+#endif
+    }
 }

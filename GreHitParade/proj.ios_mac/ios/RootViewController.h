@@ -25,10 +25,18 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface RootViewController : UIViewController {
+@interface RootViewController : UIViewController <GADInterstitialDelegate> {
     AVSpeechSynthesizer *synthesizer;
 }
+@property(nonatomic, strong) GADInterstitial *interstitial;
+
+- (void) preloadData;
+
+- (GADInterstitial *)createAndLoadInterstitial;
+- (void) showAd;
+
 - (void) textSynthesis:(NSString*)text;
 - (BOOL) prefersStatusBarHidden;
 

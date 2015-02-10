@@ -29,18 +29,43 @@
 
 @implementation RootViewController
 
-- (void)textSynthesis:(NSString*)text
+- (void)preloadData
 {
-    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:text];
-    utterance.rate = AVSpeechUtteranceDefaultSpeechRate / 3;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
-    
     if(!synthesizer)
     {
         synthesizer = [[AVSpeechSynthesizer alloc] init];
         [synthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryWord];
     }
     
+    self.interstitial = [self createAndLoadInterstitial];
+}
+
+- (GADInterstitial *)createAndLoadInterstitial {
+    GADInterstitial *interstitial = [[GADInterstitial alloc] init];
+    interstitial.adUnitID = @"ca-app-pub-3395205221669894/4905527166";
+    interstitial.delegate = self;
+    [interstitial loadRequest:[GADRequest request]];
+    return interstitial;
+}
+
+- (void)showAd
+{
+    if ([self.interstitial isReady]) {
+        [self.interstitial presentFromRootViewController:self];
+    } else {
+        self.interstitial = [self createAndLoadInterstitial];
+    }
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    self.interstitial = [self createAndLoadInterstitial];
+}
+
+- (void)textSynthesis:(NSString*)text
+{
+    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:text];
+    utterance.rate = AVSpeechUtteranceDefaultSpeechRate / 3;
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-GB"];
     [synthesizer speakUtterance:utterance];
 }
 

@@ -203,6 +203,7 @@ void LearnScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     
                     // update vars
                     showNext = true;
+                    Constants::showAd();
                 }
             }
             break;

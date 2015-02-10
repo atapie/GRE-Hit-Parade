@@ -13,6 +13,7 @@ class ObjCCalls
 {
 public:
     static void playSound(const char* text);
+    static void showAd();
 };
 
 #endif

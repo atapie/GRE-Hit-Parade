@@ -41,6 +41,14 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		C03104221A89EC5A00776A03 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03104211A89EC5A00776A03 /* GoogleMobileAds.framework */; };
+		C03104241A89EC8C00776A03 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03104231A89EC8C00776A03 /* AdSupport.framework */; };
+		C03104261A89ECBA00776A03 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03104251A89ECBA00776A03 /* CoreTelephony.framework */; };
+		C03104291A89ECC600776A03 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03104271A89ECC600776A03 /* EventKit.framework */; };
+		C031042A1A89ECC600776A03 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03104281A89ECC600776A03 /* EventKitUI.framework */; };
+		C031042C1A89ECE300776A03 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042B1A89ECE300776A03 /* MessageUI.framework */; };
+		C031042E1A89ECEB00776A03 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042D1A89ECEB00776A03 /* StoreKit.framework */; };
+		C03104301A89ECF500776A03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042F1A89ECF500776A03 /* SystemConfiguration.framework */; };
 		C07FAEE21A7B301300826AB5 /* HD in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEDF1A7B301300826AB5 /* HD */; };
 		C07FAEE31A7B301300826AB5 /* HD in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEDF1A7B301300826AB5 /* HD */; };
 		C07FAEE41A7B301300826AB5 /* HDR in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEE01A7B301300826AB5 /* HDR */; };
@@ -130,6 +138,14 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C03104211A89EC5A00776A03 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		C03104231A89EC8C00776A03 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		C03104251A89ECBA00776A03 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		C03104271A89ECC600776A03 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		C03104281A89ECC600776A03 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
+		C031042B1A89ECE300776A03 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		C031042D1A89ECEB00776A03 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		C031042F1A89ECF500776A03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		C07FAEDF1A7B301300826AB5 /* HD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HD; sourceTree = "<group>"; };
 		C07FAEE01A7B301300826AB5 /* HDR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HDR; sourceTree = "<group>"; };
 		C07FAEE11A7B301300826AB5 /* SD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SD; sourceTree = "<group>"; };
@@ -155,12 +171,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03104301A89ECF500776A03 /* SystemConfiguration.framework in Frameworks */,
+				C031042E1A89ECEB00776A03 /* StoreKit.framework in Frameworks */,
+				C031042C1A89ECE300776A03 /* MessageUI.framework in Frameworks */,
+				C03104291A89ECC600776A03 /* EventKit.framework in Frameworks */,
+				C031042A1A89ECC600776A03 /* EventKitUI.framework in Frameworks */,
+				C03104261A89ECBA00776A03 /* CoreTelephony.framework in Frameworks */,
+				C03104241A89EC8C00776A03 /* AdSupport.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
+				C03104221A89EC5A00776A03 /* GoogleMobileAds.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
@@ -242,6 +266,14 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C03104211A89EC5A00776A03 /* GoogleMobileAds.framework */,
+				C031042F1A89ECF500776A03 /* SystemConfiguration.framework */,
+				C031042D1A89ECEB00776A03 /* StoreKit.framework */,
+				C031042B1A89ECE300776A03 /* MessageUI.framework */,
+				C03104271A89ECC600776A03 /* EventKit.framework */,
+				C03104281A89ECC600776A03 /* EventKitUI.framework */,
+				C03104251A89ECBA00776A03 /* CoreTelephony.framework */,
+				C03104231A89EC8C00776A03 /* AdSupport.framework */,
 				C0AF2BB61A8203F300EA9597 /* AVFoundation.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
@@ -510,6 +542,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -544,6 +580,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;

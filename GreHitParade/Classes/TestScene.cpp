@@ -111,10 +111,16 @@ bool TestScene::initFillIn(const std::string& word)
     pb->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     sprite9->addChild(pb, 1, 1);
     
+    label = Label::createWithTTF("Type in the term", Constants::FONT_MEDIUM_ITALIC, 18);
+    label->setColor(Color3B::BLACK);
+    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+    label->setPosition(origin.x + 14, origin.y + visibleSize.height - 94);
+    this->addChild(label, 3);
+    
     // Text area
     sprite9 = ui::Scale9Sprite::createWithSpriteFrameName("TextArea", Rect(12, 12, 12, 12));
-    sprite9->setContentSize(Size(visibleSize.width-28, visibleSize.height - 230));
-    sprite9->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - 86 - sprite9->getContentSize().height / 2));
+    sprite9->setContentSize(Size(visibleSize.width-28, visibleSize.height - 266));
+    sprite9->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - 122 - sprite9->getContentSize().height / 2));
     this->addChild(sprite9, 4, 4);
     
     // input field
@@ -490,6 +496,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     editBox->setEnabled(false);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
+                    Constants::showAd();
                 } else if(mode == TestMode::MULTIPLE_CHOICE) {
                     bool correct = answerChoice == correctAnswer;
                     time_t currTime = time(0);
@@ -531,6 +538,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     ((ui::Button*)this->getChildByTag(10+correctAnswer))->loadTextureNormal("ChoiceCorrectBg", ui::Widget::TextureResType::PLIST);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
+                    Constants::showAd();
                 } else if(mode == TestMode::TRUE_FALSE) {
                     bool correct = answerChoice == correctAnswer;
                     time_t currTime = time(0);
@@ -571,6 +579,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     ((ui::Button*)this->getChildByTag(10+correctAnswer))->loadTextureNormal("ChoiceCorrectBg", ui::Widget::TextureResType::PLIST);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
+                    Constants::showAd();
                 }
             }
             break;
