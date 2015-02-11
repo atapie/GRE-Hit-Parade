@@ -438,7 +438,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
         {
             int tag = ((Node*)pSender)->getTag();
             if(tag == 1) { // home
-                auto transition = TransitionPageTurn::create(0.25f, HelloWorld::createScene(), true);
+                auto transition = TransitionSlideInL::create(0.25f, HelloWorld::createScene());
                 Director::getInstance()->replaceScene(transition);
             } else if(tag >= 10 && tag <= 13) {
                 int choice = tag % 10;
@@ -456,7 +456,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 ((ui::Button*)this->getChildByTag(99))->setBright(true);
             } else if(tag == 99) { // check
                 if(showNext) {
-                    auto transition = TransitionPageTurn::create(0.25f, TestScene::createScene(), false);
+                    auto transition = TransitionSlideInR::create(0.25f, TestScene::createScene());
                     Director::getInstance()->replaceScene(transition);
                 } else if(mode == TestMode::FILL_IN) {
                     // check answer

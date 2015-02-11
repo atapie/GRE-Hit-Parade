@@ -70,10 +70,10 @@ void HelloWorld::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
             
         case ui::Widget::TouchEventType::ENDED:
             if(((Node*)pSender)->getTag() == 1) {
-                auto transition = TransitionPageTurn::create(0.25f, LearnScene::createScene(), false);
+                auto transition = TransitionSlideInR::create(0.25f, LearnScene::createScene());
                 Director::getInstance()->replaceScene(transition);
             } else {
-                auto transition = TransitionPageTurn::create(0.25f, TestScene::createScene(), false);
+                auto transition = TransitionSlideInR::create(0.25f, TestScene::createScene());
                 Director::getInstance()->replaceScene(transition);
             }
             break;

@@ -45,7 +45,8 @@ bool LearnScene::init()
     
     // Home btn
     auto btn = ui::Button::create("HomeBtn", "HomeBtn", "", ui::Widget::TextureResType::PLIST);
-    btn->setPosition(Vec2(origin.x + visibleSize.width - 28, origin.y + visibleSize.height - 26));
+    btn->setAnchorPoint(Vec2::ANCHOR_TOP_RIGHT);
+    btn->setPosition(Vec2(origin.x + visibleSize.width, origin.y + visibleSize.height));
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 1, 1);
     
@@ -169,7 +170,7 @@ void LearnScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
         {
             int tag = ((Node*)pSender)->getTag();
             if(tag == 1) { // home
-                auto transition = TransitionPageTurn::create(0.25f, HelloWorld::createScene(), true);
+                auto transition = TransitionSlideInL::create(0.25f, HelloWorld::createScene());
                 Director::getInstance()->replaceScene(transition);
             } else if(tag == 5 || tag == 6) { // remembered || not yet
                 int choice = tag == 5 ? 1 : 0;
@@ -183,7 +184,7 @@ void LearnScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 ((ui::Button*)this->getChildByTag(7))->setBright(true);
             } else if(tag == 7) { // check
                 if(showNext) {
-                    auto transition = TransitionPageTurn::create(0.25f, LearnScene::createScene(), false);
+                    auto transition = TransitionSlideInR::create(0.25f, LearnScene::createScene());
                     Director::getInstance()->replaceScene(transition);
                 } else {
                     auto termLabel = ((Label*)this->getChildByTag(4)->getChildByTag(1));
