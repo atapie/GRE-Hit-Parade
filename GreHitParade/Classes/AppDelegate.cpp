@@ -93,6 +93,7 @@ void AppDelegate::applicationDidEnterBackground() {
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
+    Constants::appEnterForegroundTime = time(0);
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here

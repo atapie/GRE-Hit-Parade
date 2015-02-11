@@ -34,6 +34,7 @@ const Color4B Constants::BACKGROUND_COLOR(231, 240, 211, 255);
 
 // show ad time
 time_t Constants::lastShowAdTime = time(0);
+time_t Constants::appEnterForegroundTime = time(0);
 
 // static functions
 string Constants::getNextWordToLearn()
@@ -349,7 +350,7 @@ int Constants::dayUntilNextTest()
 void Constants::showAd()
 {
     time_t currTime = time(0);
-    if(currTime - lastShowAdTime > 300) {
+    if(currTime - lastShowAdTime > 300 && currTime - appEnterForegroundTime > 90) {
         lastShowAdTime = currTime;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         ObjCCalls::showAd();

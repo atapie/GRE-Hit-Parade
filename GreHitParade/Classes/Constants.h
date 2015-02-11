@@ -35,6 +35,7 @@ public:
     
     // show ad time
     static time_t lastShowAdTime;
+    static time_t appEnterForegroundTime;
     
     // static functions
     static std::string getNextWordToLearn();
