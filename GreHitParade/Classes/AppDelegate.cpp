@@ -69,7 +69,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto cacher = SpriteFrameCache::getInstance();
     cacher->addSpriteFramesWithFile("assets.plist");
     
-    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::NO_BORDER);
+    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::FIXED_HEIGHT);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);

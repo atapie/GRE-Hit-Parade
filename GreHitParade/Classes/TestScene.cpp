@@ -111,16 +111,10 @@ bool TestScene::initFillIn(const std::string& word)
     pb->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     sprite9->addChild(pb, 1, 1);
     
-    label = Label::createWithTTF("Type in the term", Constants::FONT_MEDIUM_ITALIC, 18);
-    label->setColor(Color3B::BLACK);
-    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-    label->setPosition(origin.x + 14, origin.y + visibleSize.height - 94);
-    this->addChild(label, 3);
-    
     // Text area
     sprite9 = ui::Scale9Sprite::createWithSpriteFrameName("TextArea", Rect(12, 12, 12, 12));
-    sprite9->setContentSize(Size(visibleSize.width-28, visibleSize.height - 266));
-    sprite9->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - 122 - sprite9->getContentSize().height / 2));
+    sprite9->setContentSize(Size(visibleSize.width-28, visibleSize.height - 230));
+    sprite9->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - 86 - sprite9->getContentSize().height / 2));
     this->addChild(sprite9, 4, 4);
     
     // input field
@@ -229,13 +223,7 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
     pb->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     sprite9->addChild(pb, 1, 1);
     
-    label = Label::createWithTTF("Choose the correct answer", Constants::FONT_MEDIUM_ITALIC, 18);
-    label->setColor(Color3B::BLACK);
-    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-    label->setPosition(origin.x + 14, origin.y + visibleSize.height - 94);
-    this->addChild(label, 4, 4);
-    
-    float startY = label->getPosition().y - label->getContentSize().height/2 - 14;
+    float startY = origin.y + visibleSize.height - 83;
     label = Label::createWithTTF(showTerm ? text : word, Constants::FONT_BOLD, 12);
     label->setColor(Color3B::BLACK);
     label->setWidth(visibleSize.width - 28);
@@ -356,13 +344,7 @@ bool TestScene::initTrueFalse(const std::string& word)
     pb->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     sprite9->addChild(pb, 1, 1);
     
-    label = Label::createWithTTF("Choose the correct answer", Constants::FONT_MEDIUM_ITALIC, 18);
-    label->setColor(Color3B::BLACK);
-    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-    label->setPosition(origin.x + 14, origin.y + visibleSize.height - 94);
-    this->addChild(label, 4, 4);
-    
-    float startY = label->getPosition().y - label->getContentSize().height/2 - 14;
+    float startY = origin.y + visibleSize.height - 83;
     label = Label::createWithTTF(word, Constants::FONT_BOLD, 12);
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
