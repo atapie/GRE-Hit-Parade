@@ -26,7 +26,44 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import java.util.Locale;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-public class AppActivity extends Cocos2dxActivity {
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
+import android.widget.Toast;
+
+public class AppActivity extends Cocos2dxActivity implements OnInitListener {
+	private static TextToSpeech myTTS = null;
+	private static boolean ttsAvailable = false;
+	
+	@Override
+	public void init() {
+		super.init();
+		try {
+			myTTS = new TextToSpeech(this, this);
+		} catch(Exception e) {
+			Toast.makeText(this, "Unable to initialize Text-to-Speech engine...", Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void onInit(int initStatus) {
+	    if (initStatus == TextToSpeech.SUCCESS) {
+	    	ttsAvailable = true;
+	    	try {
+	    		myTTS.setLanguage(Locale.ENGLISH);
+	    	} catch(Exception e) { }
+	    } else {
+	    	Toast.makeText(this, "Unable to initialize Text-to-Speech engine...", Toast.LENGTH_LONG).show();
+	    }
+	}
+	
+	public static void playSound(String text) {
+		if(ttsAvailable) {
+			try {
+				myTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+			} catch(Exception e) { }
+		}
+	}
 }

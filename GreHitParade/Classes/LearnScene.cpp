@@ -13,6 +13,8 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ObjCCalls.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include "platform/android/jni/JniHelper.h"
 #endif
 
 USING_NS_CC;
@@ -146,6 +148,14 @@ bool LearnScene::init()
     // play sound
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     ObjCCalls::playSound(nextWord.c_str());
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "playSound", "(Ljava/lang/String;)V")) {
+        jstring stringArg = methodInfo.env->NewStringUTF(nextWord.c_str());
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, stringArg);
+        methodInfo.env->DeleteLocalRef(stringArg);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
 #endif
     
     // init vars

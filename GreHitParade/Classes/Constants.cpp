@@ -6,7 +6,9 @@
 //
 
 #include "Constants.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ObjCCalls.h"
+#endif
 
 USING_NS_CC;
 using namespace std;
