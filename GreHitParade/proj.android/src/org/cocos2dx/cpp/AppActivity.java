@@ -30,6 +30,9 @@ import java.util.Locale;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import com.google.android.gms.ads.*;
+import com.joto.grehit.R;
+
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.widget.Toast;
@@ -37,6 +40,27 @@ import android.widget.Toast;
 public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 	private static TextToSpeech myTTS = null;
 	private static boolean ttsAvailable = false;
+	
+	// Ads
+	private InterstitialAd interstitial = null;
+	private void reloadInterstitialAd() {
+		interstitial = new InterstitialAd(this);
+	    interstitial.setAdUnitId(getString(R.string.banner_ad_unit_id));
+	    interstitial.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+            	reloadInterstitialAd();
+            }
+        });
+
+	    AdRequest.Builder builder = new AdRequest.Builder();
+	    //builder.addTestDevice("84E2034CD7B59DA216F81F5FEEFA476C");
+	    interstitial.loadAd(builder.build());
+	}
+	public void showInterstitialAd() {
+		if(interstitial.isLoaded()) interstitial.show();
+		else reloadInterstitialAd();
+	}
 	
 	@Override
 	public void init() {
@@ -46,6 +70,9 @@ public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 		} catch(Exception e) {
 			Toast.makeText(this, "Unable to initialize Text-to-Speech engine...", Toast.LENGTH_LONG).show();
 		}
+		
+		// Load Ad
+		reloadInterstitialAd();
 	}
 	
 	public void onInit(int initStatus) {
@@ -65,5 +92,16 @@ public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 				myTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 			} catch(Exception e) { }
 		}
+	}
+	
+	public static void showAd() {
+		((AppActivity)getContext()).runOnUiThread(new Runnable()
+	    {
+	        @Override
+	        public void run()
+	        {
+	        	((AppActivity)AppActivity.getContext()).showInterstitialAd();
+	        }
+	    });
 	}
 }

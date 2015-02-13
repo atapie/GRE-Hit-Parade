@@ -8,6 +8,8 @@
 #include "Constants.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "ObjCCalls.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#include "platform/android/jni/JniHelper.h"
 #endif
 
 USING_NS_CC;
@@ -356,6 +358,12 @@ void Constants::showAd()
         lastShowAdTime = currTime;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         ObjCCalls::showAd();
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "showAd", "()V")) {
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
 #endif
     }
 }
