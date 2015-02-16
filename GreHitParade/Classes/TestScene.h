@@ -10,7 +10,7 @@
 #define __GreHitParade__TestScene__
 
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "ui/CocosGUI.h"
 
 enum TestMode {
     FILL_IN,

@@ -10,7 +10,7 @@
 #define __GreHitParade__LearnScene__
 
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "ui/CocosGUI.h"
 
 class LearnScene : public cocos2d::LayerColor
 {
