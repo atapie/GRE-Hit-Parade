@@ -15,6 +15,8 @@
 #include "ObjCCalls.h"
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 #include "platform/android/jni/JniHelper.h"
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
+#include "App.xaml.h"
 #endif
 
 USING_NS_CC;
@@ -156,6 +158,10 @@ bool LearnScene::init()
         methodInfo.env->DeleteLocalRef(stringArg);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
     }
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
+	std::wstring ws;
+	ws.assign(nextWord.cbegin(), nextWord.cend());
+	App::getInstance()->playSound(ref new Platform::String(ws.c_str()));
 #endif
     
     // init vars

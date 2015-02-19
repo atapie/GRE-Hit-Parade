@@ -11,9 +11,12 @@ namespace cocos2d
     public:
         App();
         virtual void OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEventArgs^ e) override;
+		void playSound(Platform::String ^text);
+		static App^ getInstance();
 
     private:
         OpenGLESPage^ mPage;
         OpenGLES mOpenGLES;
+		static App^ _instance;
     };
 }
