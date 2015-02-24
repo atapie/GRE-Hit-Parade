@@ -91,7 +91,7 @@ bool TestScene::initFillIn(const std::string& word)
     float retainedPercent = round(Constants::getTestedCount() * 100 / Constants::getTotalTestCount());
     std::stringstream stm;
     stm << "Testing progress: " << retainedPercent << "%";
-    auto label = Label::createWithTTF(stm.str(), Constants::FONT_MEDIUM, 12);
+    auto label = Label::createWithBMFont(Constants::FONT_BOLD12, stm.str());
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     label->setPosition(origin.x + 14, origin.y + visibleSize.height - 28);
@@ -123,9 +123,9 @@ bool TestScene::initFillIn(const std::string& word)
     editBox->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 108));
     editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
     editBox->setPlaceHolder("Type in the term");
-    editBox->setPlaceholderFont(Constants::FONT_LIGHT.c_str(), 12);
+    editBox->setPlaceholderFont(Constants::FONT_SYSTEM.c_str(), 12);
     editBox->setPlaceholderFontColor(Color3B(153, 153, 153));
-    editBox->setFont(Constants::FONT_REGULAR.c_str(), 12);
+    editBox->setFont(Constants::FONT_SYSTEM.c_str(), 12);
     editBox->setFontColor(Color3B::BLACK);
     editBox->setMaxLength((int)word.length());
     editBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
@@ -139,9 +139,7 @@ bool TestScene::initFillIn(const std::string& word)
     btn->setCapInsets(Rect(12, 12, 12, 12));
     btn->setSize(Size(visibleSize.width-28, 58));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 45));
-    btn->setTitleColor(Color3B::WHITE);
-    btn->setTitleFontName(Constants::FONT_BOLD);
-    btn->setTitleFontSize(30);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     btn->setTitleText("Check");
     btn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
     this->addChild(btn, 99, 99);
@@ -149,11 +147,11 @@ bool TestScene::initFillIn(const std::string& word)
     btn->setBright(false);
     
     // definition
-    label = Label::createWithTTF(text, Constants::FONT_REGULAR, 14);
+    label = Label::createWithBMFont(Constants::FONT_REGULAR14, text);
     label->setColor(Color3B::BLACK);
-    label->setDimensions(sprite9->getContentSize().width - 28, sprite9->getContentSize().height - 28);
+    label->setWidth(sprite9->getContentSize().width - 28);
+    label->setAlignment(TextHAlignment::LEFT);
     label->setPosition(sprite9->getContentSize().width/2, sprite9->getContentSize().height/2);
-    label->setAlignment(TextHAlignment::LEFT, TextVAlignment::CENTER);
     sprite9->addChild(label, 1, 1);
     
     // init vars
@@ -203,7 +201,7 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
     float retainedPercent = round(Constants::getTestedCount() * 100 / Constants::getTotalTestCount());
     std::stringstream stm;
     stm << "Testing progress: " << retainedPercent << "%";
-    auto label = Label::createWithTTF(stm.str(), Constants::FONT_MEDIUM, 12);
+    auto label = Label::createWithBMFont(Constants::FONT_BOLD12, stm.str());
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     label->setPosition(origin.x + 14, origin.y + visibleSize.height - 28);
@@ -224,10 +222,10 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
     sprite9->addChild(pb, 1, 1);
     
     float startY = origin.y + visibleSize.height - 83;
-    label = Label::createWithTTF(showTerm ? text : word, Constants::FONT_BOLD, 12);
+    label = Label::createWithBMFont(Constants::FONT_BOLD12, showTerm ? text : word);
     label->setColor(Color3B::BLACK);
     label->setWidth(visibleSize.width - 28);
-    label->setAlignment(TextHAlignment::LEFT, TextVAlignment::TOP);
+    label->setAlignment(TextHAlignment::LEFT);
     label->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     label->setPosition(origin.x + 14, startY);
     this->addChild(label, 5, 5);
@@ -239,17 +237,16 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
         btn->setCapInsets(Rect(5, 5, 5, 5));
         btn->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
         btn->setPosition(Vec2(origin.x + visibleSize.width/2, startY));
-        btn->setTitleColor(Color3B::BLACK);
-        btn->setTitleFontName(Constants::FONT_REGULAR);
-        btn->setTitleFontSize(12);
+        btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_REGULAR12);
+        btn->getTitleRenderer()->setColor(Color3B::BLACK);
+        btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
+        btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
         if(i == this->correctAnswer) {
             btn->setTitleText(showTerm ? word : text);
         } else {
             btn->setTitleText(wrongAnswers.back());
             wrongAnswers.pop_back();
         }
-        btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
-        btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT, TextVAlignment::CENTER);
         int btnHeight = btn->getTitleRenderer()->getContentSize().height + 10;
         if(btnHeight < 30) btnHeight = 30;
         btn->setSize(Size(visibleSize.width-28, btnHeight));
@@ -264,9 +261,7 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
     btn->setCapInsets(Rect(12, 12, 12, 12));
     btn->setSize(Size(visibleSize.width-28, 58));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 45));
-    btn->setTitleColor(Color3B::WHITE);
-    btn->setTitleFontName(Constants::FONT_BOLD);
-    btn->setTitleFontSize(30);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     btn->setTitleText("Check");
     btn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
     this->addChild(btn, 99, 99);
@@ -324,7 +319,7 @@ bool TestScene::initTrueFalse(const std::string& word)
     float retainedPercent = round(Constants::getTestedCount() * 100 / Constants::getTotalTestCount());
     std::stringstream stm;
     stm << "Testing progress: " << retainedPercent << "%";
-    auto label = Label::createWithTTF(stm.str(), Constants::FONT_MEDIUM, 12);
+    auto label = Label::createWithBMFont(Constants::FONT_BOLD12, stm.str());
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     label->setPosition(origin.x + 14, origin.y + visibleSize.height - 28);
@@ -345,7 +340,7 @@ bool TestScene::initTrueFalse(const std::string& word)
     sprite9->addChild(pb, 1, 1);
     
     float startY = origin.y + visibleSize.height - 83;
-    label = Label::createWithTTF(word, Constants::FONT_BOLD, 12);
+    label = Label::createWithBMFont(Constants::FONT_BOLD12, word);
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     label->setPosition(origin.x + 14, startY);
@@ -353,10 +348,10 @@ bool TestScene::initTrueFalse(const std::string& word)
     this->addChild(label, 5, 5);
     
     startY = label->getPosition().y - label->getContentSize().height - 5;
-    label = Label::createWithTTF(correctAnswer == 0 ? correctText : incorrectText, Constants::FONT_REGULAR, 12);
+    label = Label::createWithBMFont(Constants::FONT_REGULAR12, correctAnswer == 0 ? correctText : incorrectText);
     label->setColor(Color3B::BLACK);
     label->setWidth(visibleSize.width - 28);
-    label->setAlignment(TextHAlignment::LEFT, TextVAlignment::TOP);
+    label->setAlignment(TextHAlignment::LEFT);
     label->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     label->setPosition(origin.x + 14, startY);
     this->addChild(label, 6, 6);
@@ -368,18 +363,15 @@ bool TestScene::initTrueFalse(const std::string& word)
         btn->setCapInsets(Rect(5, 5, 5, 5));
         btn->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
         btn->setPosition(Vec2(origin.x + visibleSize.width/2, startY));
-        btn->setTitleColor(Color3B::BLACK);
-        btn->setTitleFontName(Constants::FONT_REGULAR);
-        btn->setTitleFontSize(12);
-        btn->setTitleText(i == 0 ? "True" : "False");
+        btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_REGULAR12);
+        btn->getTitleRenderer()->setColor(Color3B::BLACK);
         btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
-        btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT, TextVAlignment::CENTER);
-        int btnHeight = btn->getTitleRenderer()->getContentSize().height + 10;
-        if(btnHeight < 30) btnHeight = 30;
-        btn->setSize(Size(visibleSize.width-28, btnHeight));
+        btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
+        btn->setTitleText(i == 0 ? "True" : "False");
+        btn->setSize(Size(visibleSize.width-28, 30));
         btn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
         this->addChild(btn, 10+i, 10+i);
-        startY -= btnHeight + 14;
+        startY -= 44;
     }
     
     // check btn
@@ -388,9 +380,7 @@ bool TestScene::initTrueFalse(const std::string& word)
     btn->setCapInsets(Rect(12, 12, 12, 12));
     btn->setSize(Size(visibleSize.width-28, 58));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 45));
-    btn->setTitleColor(Color3B::WHITE);
-    btn->setTitleFontName(Constants::FONT_BOLD);
-    btn->setTitleFontSize(30);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     btn->setTitleText("Check");
     btn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
     this->addChild(btn, 99, 99);
@@ -458,13 +448,13 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto badgeBg = Sprite::createWithSpriteFrameName(correct? "CorrectBadge" : "IncorrectBadge");
                     badgeBg->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
                     badge->addChild(badgeBg);
-                    auto label = Label::createWithTTF(correct? "You are correct" : "Oops, that's not correct", Constants::FONT_BOLD, correct? 24 : 16);
+                    auto label = Label::createWithBMFont(correct ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(correct? Vec2::ANCHOR_MIDDLE_LEFT : Vec2::ANCHOR_BOTTOM_LEFT);
                     label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
                     badge->addChild(label);
                     if(!correct) {
-                        label = Label::createWithTTF(word, Constants::FONT_REGULAR, 12);
+                        label = Label::createWithBMFont(Constants::FONT_REGULAR12, word);
                         label->setColor(Color3B(245,23,50));
                         label->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
                         label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
@@ -491,7 +481,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto badgeBg = Sprite::createWithSpriteFrameName(correct? "CorrectBadge" : "IncorrectBadge");
                     badgeBg->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
                     badge->addChild(badgeBg, 1, 1);
-                    auto label = Label::createWithTTF(correct? "You are correct" : "Oops, that's not correct", Constants::FONT_BOLD, correct ? 24 : 16);
+                    auto label = Label::createWithBMFont(correct ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
                     label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
@@ -499,12 +489,12 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     if(!correct) {
                         float titleHeight = label->getContentSize().height - 2;
                         const std::string& s = ((ui::Button*)this->getChildByTag(10+correctAnswer))->getTitleText();
-                        label = Label::createWithTTF(s, Constants::FONT_REGULAR, 12);
+                        label = Label::createWithBMFont(Constants::FONT_REGULAR12, s);
                         label->setColor(Color3B(245,23,50));
+                        label->setWidth(200);
+                        label->setAlignment(TextHAlignment::LEFT);
                         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
                         label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 - titleHeight/2 + 2));
-                        label->setWidth(200);
-                        label->setAlignment(TextHAlignment::LEFT, TextVAlignment::TOP);
                         badge->addChild(label, 3, 3);
                         ((Node*)badge->getChildByTag(2))->setPositionY(label->getPositionY() + label->getContentSize().height/2 + titleHeight/2 + 2);
                     }
@@ -533,7 +523,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto badgeBg = Sprite::createWithSpriteFrameName(correct? "CorrectBadge" : "IncorrectBadge");
                     badgeBg->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
                     badge->addChild(badgeBg, 1, 1);
-                    auto label = Label::createWithTTF(correct? "You are correct" : "Oops, that's not correct", Constants::FONT_BOLD, (correct && correctAnswer == 0) ? 24 : 16);
+                    auto label = Label::createWithBMFont((correct && correctAnswer == 0) ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
                     label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
@@ -542,12 +532,12 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                         float titleHeight = label->getContentSize().height - 2;
                         std::string word = ((Label*)this->getChildByTag(5))->getString();
                         word.append(" - ").append(((Label*)this->getChildByTag(5))->getName());
-                        label = Label::createWithTTF(word, Constants::FONT_REGULAR, 12);
+                        label = Label::createWithBMFont(Constants::FONT_REGULAR12, word);
                         label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
+                        label->setWidth(200);
+                        label->setAlignment(TextHAlignment::LEFT);
                         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
                         label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 - titleHeight/2 + 2));
-                        label->setWidth(200);
-                        label->setAlignment(TextHAlignment::LEFT, TextVAlignment::TOP);
                         badge->addChild(label, 3, 3);
                         ((Node*)badge->getChildByTag(2))->setPositionY(label->getPositionY() + label->getContentSize().height/2 + titleHeight/2 + 2);
                     }

@@ -36,9 +36,7 @@ bool HelloWorld::init()
     learnBtn->setCapInsets(Rect(12, 12, 12, 12));
     learnBtn->setSize(Size(177, 58));
     learnBtn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2 + 39));
-    learnBtn->setTitleColor(Color3B::WHITE);
-    learnBtn->setTitleFontName(Constants::FONT_BOLD);
-    learnBtn->setTitleFontSize(30);
+    learnBtn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     learnBtn->setTitleText("Learn");
     learnBtn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::touchEvent, this));
     this->addChild(learnBtn, 1, 1);
@@ -48,9 +46,7 @@ bool HelloWorld::init()
     testBtn->setCapInsets(Rect(12, 12, 12, 12));
     testBtn->setSize(Size(177, 58));
     testBtn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2 - 39));
-    testBtn->setTitleColor(Color3B::WHITE);
-    testBtn->setTitleFontName(Constants::FONT_BOLD);
-    testBtn->setTitleFontSize(30);
+    testBtn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     testBtn->setTitleText("Test");
     testBtn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::touchEvent, this));
     this->addChild(testBtn, 2, 2);

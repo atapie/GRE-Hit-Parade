@@ -19,16 +19,13 @@ public:
     static const unsigned int NEW_TEST_PER_TIME;
     
     // fonts
-    static const std::string FONT_LIGHT;
-    static const std::string FONT_LIGHT_ITALIC;
-    static const std::string FONT_REGULAR;
-    static const std::string FONT_ITALIC;
-    static const std::string FONT_MEDIUM;
-    static const std::string FONT_MEDIUM_ITALIC;
-    static const std::string FONT_BOLD;
-    static const std::string FONT_BOLD_ITALIC;
-    static const std::string FONT_EXTRA_BOLD;
-    static const std::string FONT_EXTRA_BOLD_ITALIC;
+    static const std::string FONT_REGULAR12;
+    static const std::string FONT_REGULAR14;
+    static const std::string FONT_BOLD12;
+    static const std::string FONT_BOLD16;
+    static const std::string FONT_BOLD24;
+    static const std::string FONT_BOLD30;
+    static const std::string FONT_SYSTEM;
     
     // colors
     static const cocos2d::Color4B BACKGROUND_COLOR;

@@ -58,7 +58,7 @@ bool LearnScene::init()
     float retainedPercent = round(Constants::getRetainedWordCount() * 100 / Constants::getTotalWordCount());
     std::stringstream stm;
     stm << "Learning progress: " << retainedPercent << "%";
-    auto label = Label::createWithTTF(stm.str(), Constants::FONT_MEDIUM, 12);
+    auto label = Label::createWithBMFont(Constants::FONT_BOLD12, stm.str());
     label->setColor(Color3B::BLACK);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     label->setPosition(origin.x + 14, origin.y + visibleSize.height - 28);
@@ -90,12 +90,9 @@ bool LearnScene::init()
     btn->setCapInsets(Rect(5, 5, 5, 5));
     btn->setSize(Size(visibleSize.width-28, 30));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 148));
-    btn->setTitleColor(Color3B::BLACK);
-    btn->setTitleFontName(Constants::FONT_REGULAR);
-    btn->setTitleFontSize(12);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_REGULAR12);
+    btn->getTitleRenderer()->setColor(Color3B::BLACK);
     btn->setTitleText("I know this word.");
-    btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
-    btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 5, 5);
     btn = ui::Button::create("ChoiceBg", "ChoiceSelectedBg", "", ui::Widget::TextureResType::PLIST);
@@ -103,12 +100,9 @@ bool LearnScene::init()
     btn->setCapInsets(Rect(5, 5, 5, 5));
     btn->setSize(Size(visibleSize.width-28, 30));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 103));
-    btn->setTitleColor(Color3B::BLACK);
-    btn->setTitleFontName(Constants::FONT_REGULAR);
-    btn->setTitleFontSize(12);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_REGULAR12);
+    btn->getTitleRenderer()->setColor(Color3B::BLACK);
     btn->setTitleText("Not yet!");
-    btn->getTitleRenderer()->setWidth(visibleSize.width - 56);
-    btn->getTitleRenderer()->setAlignment(TextHAlignment::LEFT);
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 6, 6);
     
@@ -118,9 +112,7 @@ bool LearnScene::init()
     btn->setCapInsets(Rect(12, 12, 12, 12));
     btn->setSize(Size(visibleSize.width-28, 58));
     btn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 45));
-    btn->setTitleColor(Color3B::WHITE);
-    btn->setTitleFontName(Constants::FONT_BOLD);
-    btn->setTitleFontSize(30);
+    btn->getTitleRenderer()->setBMFontFilePath(Constants::FONT_BOLD30);
     btn->setTitleText("Check");
     btn->addTouchEventListener(CC_CALLBACK_2(LearnScene::touchEvent, this));
     this->addChild(btn, 7, 7);
@@ -129,7 +121,7 @@ bool LearnScene::init()
     
     // term
     std::string nextWord = Constants::getNextWordToLearn();
-    label = Label::createWithTTF(nextWord, Constants::FONT_EXTRA_BOLD, 30);
+    label = Label::createWithBMFont(Constants::FONT_BOLD30, nextWord);
     label->setColor(Color3B::BLACK);
     label->setPosition(sprite9->getContentSize().width/2, sprite9->getContentSize().height/2);
     sprite9->addChild(label, 1, 1);
@@ -138,11 +130,11 @@ bool LearnScene::init()
     const ValueMap& wInfo = Configuration::getInstance()->getValue("words").asValueMap().at(nextWord).asValueMap();
     auto it = wInfo.find("ldef");
     std::string ldef = it != wInfo.end() ? it->second.asString() : "Missing definition";
-    label = Label::createWithTTF(ldef, Constants::FONT_REGULAR, 14);
+    label = Label::createWithBMFont(Constants::FONT_REGULAR14, ldef);
     label->setColor(Color3B::BLACK);
-    label->setDimensions(sprite9->getContentSize().width - 28, sprite9->getContentSize().height - 28);
+    label->setWidth(sprite9->getContentSize().width - 28);
+    label->setAlignment(TextHAlignment::LEFT);
     label->setPosition(sprite9->getContentSize().width/2, sprite9->getContentSize().height/2);
-    label->setAlignment(TextHAlignment::LEFT, TextVAlignment::CENTER);
     sprite9->addChild(label, 2, 2);
     label->setOpacity(0);
     label->setVisible(false);

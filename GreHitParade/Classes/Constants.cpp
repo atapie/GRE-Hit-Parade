@@ -22,16 +22,13 @@ const unsigned int Constants::NEW_WORD_PER_TIME = 10;
 const unsigned int Constants::NEW_TEST_PER_TIME = 5;
 
 // fonts
-const string Constants::FONT_LIGHT = "fonts/OpenSans-Light.ttf";
-const string Constants::FONT_LIGHT_ITALIC = "fonts/OpenSans-LightItalic.ttf";
-const string Constants::FONT_REGULAR = "fonts/OpenSans-Regular.ttf";
-const string Constants::FONT_ITALIC = "fonts/OpenSans-Italic.ttf";
-const string Constants::FONT_MEDIUM = "fonts/OpenSans-Semibold.ttf";
-const string Constants::FONT_MEDIUM_ITALIC = "fonts/OpenSans-SemiboldItalic.ttf";
-const string Constants::FONT_BOLD = "fonts/OpenSans-Bold.ttf";
-const string Constants::FONT_BOLD_ITALIC = "fonts/OpenSans-BoldItalic.ttf";
-const string Constants::FONT_EXTRA_BOLD = "fonts/OpenSans-ExtraBold.ttf";
-const string Constants::FONT_EXTRA_BOLD_ITALIC = "fonts/OpenSans-ExtraBoldItalic.ttf";
+const string Constants::FONT_REGULAR12 = "regular12.fnt";
+const string Constants::FONT_REGULAR14 = "regular14.fnt";
+const string Constants::FONT_BOLD12 = "bold12.fnt";
+const string Constants::FONT_BOLD16 = "bold16.fnt";
+const string Constants::FONT_BOLD24 = "bold24.fnt";
+const string Constants::FONT_BOLD30 = "bold30.fnt";
+const string Constants::FONT_SYSTEM = "Helvetica Neue";
 
 // colors
 const Color4B Constants::BACKGROUND_COLOR(231, 240, 211, 255);
