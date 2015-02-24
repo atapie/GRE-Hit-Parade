@@ -18,3 +18,8 @@ void ObjCCalls::showAd()
 {
     [(RootViewController*)[UIApplication sharedApplication].keyWindow.rootViewController showAd];
 }
+
+void ObjCCalls::openInAppStore()
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/app/id966810494?ls=1&mt=8"]];
+}

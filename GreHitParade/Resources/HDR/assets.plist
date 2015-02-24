@@ -7,7 +7,7 @@
             <key>BtnBlueNormal</key>
             <dict>
                 <key>frame</key>
-                <string>{{8,700},{136,250}}</string>
+                <string>{{700,62},{136,250}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>BtnBluePressed</key>
             <dict>
                 <key>frame</key>
-                <string>{{266,700},{136,250}}</string>
+                <string>{{700,206},{136,250}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>BtnDisabled</key>
             <dict>
                 <key>frame</key>
-                <string>{{524,700},{136,250}}</string>
+                <string>{{700,350},{136,250}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>BtnNormal</key>
             <dict>
                 <key>frame</key>
-                <string>{{8,844},{136,250}}</string>
+                <string>{{700,494},{136,250}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>BtnPressed</key>
             <dict>
                 <key>frame</key>
-                <string>{{266,844},{136,250}}</string>
+                <string>{{700,638},{136,250}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>ChoiceBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{950,8},{124,124}}</string>
+                <string>{{958,224},{124,124}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>ChoiceCorrectBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{950,140},{124,124}}</string>
+                <string>{{958,356},{124,124}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>ChoiceSelectedBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{950,272},{124,124}}</string>
+                <string>{{958,488},{124,124}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -115,7 +115,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{934,338}}</string>
                 <key>sourceSize</key>
@@ -124,7 +124,7 @@
             <key>HomeBtn</key>
             <dict>
                 <key>frame</key>
-                <string>{{782,700},{224,204}}</string>
+                <string>{{700,782},{224,204}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,11 +137,11 @@
             <key>IncorrectBadge</key>
             <dict>
                 <key>frame</key>
-                <string>{{8,354},{934,338}}</string>
+                <string>{{354,8},{934,338}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{934,338}}</string>
                 <key>sourceSize</key>
@@ -150,11 +150,11 @@
             <key>InputFieldBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{524,844},{124,154}}</string>
+                <string>{{958,62},{124,154}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{124,154}}</string>
                 <key>sourceSize</key>
@@ -163,7 +163,7 @@
             <key>PbBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{686,844},{24,24}}</string>
+                <string>{{8,950},{24,24}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>PbProgress</key>
             <dict>
                 <key>frame</key>
-                <string>{{686,876},{24,24}}</string>
+                <string>{{40,950},{24,24}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -186,10 +186,23 @@
                 <key>sourceSize</key>
                 <string>{24,24}</string>
             </dict>
+            <key>RateBtn</key>
+            <dict>
+                <key>frame</key>
+                <string>{{700,8},{302,46}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{302,46}}</string>
+                <key>sourceSize</key>
+                <string>{302,46}</string>
+            </dict>
             <key>TextArea</key>
             <dict>
                 <key>frame</key>
-                <string>{{950,404},{120,120}}</string>
+                <string>{{958,620},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -207,9 +220,9 @@
             <key>realTextureFileName</key>
             <string>assets.pvr.ccz</string>
             <key>size</key>
-            <string>{1082,988}</string>
+            <string>{1090,994}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:89776203b2e8772dca5bd88dedb43ec2:b26ece7466c7240600e6c5d01b1eb76b:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
+            <string>$TexturePacker:SmartUpdate:abc0914bfa8a8ea76d0abdc2aaab021d:92292680c332c724df746e99d1f762a0:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
             <key>textureFileName</key>
             <string>assets.pvr.ccz</string>
         </dict>

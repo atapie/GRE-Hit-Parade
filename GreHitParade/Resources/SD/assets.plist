@@ -7,7 +7,7 @@
             <key>BtnBlueNormal</key>
             <dict>
                 <key>frame</key>
-                <string>{{556,8},{34,63}}</string>
+                <string>{{551,8},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>BtnBluePressed</key>
             <dict>
                 <key>frame</key>
-                <string>{{627,8},{34,63}}</string>
+                <string>{{579,50},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>BtnDisabled</key>
             <dict>
                 <key>frame</key>
-                <string>{{698,8},{34,63}}</string>
+                <string>{{622,8},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>BtnNormal</key>
             <dict>
                 <key>frame</key>
-                <string>{{769,8},{34,63}}</string>
+                <string>{{650,50},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>BtnPressed</key>
             <dict>
                 <key>frame</key>
-                <string>{{556,50},{34,63}}</string>
+                <string>{{693,8},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>ChoiceBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{674,50},{31,31}}</string>
+                <string>{{760,50},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>ChoiceCorrectBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{713,50},{31,31}}</string>
+                <string>{{764,8},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>ChoiceSelectedBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{752,50},{31,31}}</string>
+                <string>{{799,47},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -128,7 +128,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{56,51}}</string>
                 <key>sourceSize</key>
@@ -150,11 +150,11 @@
             <key>InputFieldBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{627,50},{31,39}}</string>
+                <string>{{721,50},{31,39}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{31,39}}</string>
                 <key>sourceSize</key>
@@ -163,7 +163,7 @@
             <key>PbBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{492,67},{6,6}}</string>
+                <string>{{551,50},{6,6}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>PbProgress</key>
             <dict>
                 <key>frame</key>
-                <string>{{492,81},{6,6}}</string>
+                <string>{{565,50},{6,6}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -186,10 +186,23 @@
                 <key>sourceSize</key>
                 <string>{6,6}</string>
             </dict>
+            <key>RateBtn</key>
+            <dict>
+                <key>frame</key>
+                <string>{{492,72},{76,12}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{76,12}}</string>
+                <key>sourceSize</key>
+                <string>{76,12}</string>
+            </dict>
             <key>TextArea</key>
             <dict>
                 <key>frame</key>
-                <string>{{791,50},{30,30}}</string>
+                <string>{{803,8},{30,30}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -207,9 +220,9 @@
             <key>realTextureFileName</key>
             <string>assets.pvr.ccz</string>
             <key>size</key>
-            <string>{840,101}</string>
+            <string>{841,101}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:89776203b2e8772dca5bd88dedb43ec2:b26ece7466c7240600e6c5d01b1eb76b:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
+            <string>$TexturePacker:SmartUpdate:abc0914bfa8a8ea76d0abdc2aaab021d:92292680c332c724df746e99d1f762a0:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
             <key>textureFileName</key>
             <string>assets.pvr.ccz</string>
         </dict>

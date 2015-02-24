@@ -364,3 +364,16 @@ void Constants::showAd()
 #endif
     }
 }
+
+void Constants::openInAppStore()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    ObjCCalls::openInAppStore();
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+    JniMethodInfo methodInfo;
+    if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "openInAppStore", "()V")) {
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
+#endif
+}

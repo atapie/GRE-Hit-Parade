@@ -45,6 +45,7 @@ public:
     static size_t getTotalTestCount();
     static void initWordData();
     static void showAd();
+    static void openInAppStore();
     
 private:
     static bool pullNewWordToLearn();

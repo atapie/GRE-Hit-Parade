@@ -50,6 +50,11 @@ bool HelloWorld::init()
     testBtn->setTitleText("Test");
     testBtn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::touchEvent, this));
     this->addChild(testBtn, 2, 2);
+    
+    auto rateBtn = ui::Button::create("RateBtn", "", "", ui::Widget::TextureResType::PLIST);
+    rateBtn->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + 30));
+    rateBtn->addTouchEventListener(CC_CALLBACK_2(HelloWorld::touchEvent, this));
+    this->addChild(rateBtn, 3, 3);
 
     return true;
 }
@@ -65,14 +70,19 @@ void HelloWorld::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
             break;
             
         case ui::Widget::TouchEventType::ENDED:
-            if(((Node*)pSender)->getTag() == 1) {
+        {
+            int tag = ((Node*)pSender)->getTag();
+            if(tag == 1) {
                 auto transition = TransitionSlideInR::create(0.25f, LearnScene::createScene());
                 Director::getInstance()->replaceScene(transition);
-            } else {
+            } else if(tag == 2) {
                 auto transition = TransitionSlideInR::create(0.25f, TestScene::createScene());
                 Director::getInstance()->replaceScene(transition);
+            } else {
+                Constants::openInAppStore();
             }
             break;
+        }
             
         case ui::Widget::TouchEventType::CANCELED:
             break;
