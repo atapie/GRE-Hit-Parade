@@ -57,7 +57,7 @@ bool TestScene::initFillIn(const std::string& word)
 {
     // Retrieve data
     const ValueMap& wInfo = Configuration::getInstance()->getValue("words").asValueMap().at(word).asValueMap();
-    size_t testAvail = wInfo.at("ex").asValueMap().size() + 1;
+    /*size_t testAvail = wInfo.at("ex").asValueMap().size() + 1;
     int randNum = rand() % testAvail;
     std::string text;
     if(randNum == 0) {
@@ -69,7 +69,9 @@ bool TestScene::initFillIn(const std::string& word)
         text = wInfo.at("ex").asValueMap().at("ex2").asString();
     } else if (randNum == 3) {
         text = wInfo.at("ex").asValueMap().at("ex3").asString();
-    }
+    }*/
+    auto it = wInfo.find("ldef");
+    std::string text = it != wInfo.end() ? it->second.asString() : "Missing definition";
     std::string textLower = text;
     std::transform(textLower.begin(), textLower.end(), textLower.begin(), ::tolower);
     size_t wordIdx = 0;
