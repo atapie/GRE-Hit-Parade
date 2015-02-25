@@ -133,7 +133,6 @@ void Constants::handleWord(const std::string &w, int score)
             if(newRVal > 730) newRVal = 730;
             wData["repetitionVal"] = newRVal;
             wData["repetitionCount"] = wData["repetitionCount"].asInt() + 1;
-            CCLOG("days remaining %d", wData["daysRemaining"].asInt());
             wData["daysRemaining"] = newRVal;
         }
         
@@ -193,7 +192,6 @@ void Constants::handleTest(const std::string &w, int score)
             if(newRVal > 730) newRVal = 730;
             wData["repetitionVal"] = newRVal;
             wData["repetitionCount"] = wData["repetitionCount"].asInt() + 1;
-            CCLOG("days remaining %d", wData["daysRemaining"].asInt());
             wData["daysRemaining"] = newRVal;
         }
         
