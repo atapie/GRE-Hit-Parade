@@ -11,14 +11,6 @@
 #include "HelloWorldScene.h"
 #include <sstream>
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "ObjCCalls.h"
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-#include "platform/android/jni/JniHelper.h"
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
-#include "App.xaml.h"
-#endif
-
 USING_NS_CC;
 
 Scene* LearnScene::createScene()
@@ -140,21 +132,7 @@ bool LearnScene::init()
     label->setVisible(false);
     
     // play sound
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    ObjCCalls::playSound(nextWord.c_str());
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    JniMethodInfo methodInfo;
-    if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "playSound", "(Ljava/lang/String;)V")) {
-        jstring stringArg = methodInfo.env->NewStringUTF(nextWord.c_str());
-        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, stringArg);
-        methodInfo.env->DeleteLocalRef(stringArg);
-        methodInfo.env->DeleteLocalRef(methodInfo.classID);
-    }
-#elif CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
-	std::wstring ws;
-	ws.assign(nextWord.cbegin(), nextWord.cend());
-	App::getInstance()->playSound(ref new Platform::String(ws.c_str()));
-#endif
+    Constants::playText(nextWord);
     
     // init vars
     this->startTime = time(0);

@@ -44,6 +44,7 @@ public:
     static size_t getTotalWordCount();
     static size_t getTotalTestCount();
     static void initWordData();
+    static void playText(const std::string& text);
     static void showAd();
     static void openInAppStore();
     

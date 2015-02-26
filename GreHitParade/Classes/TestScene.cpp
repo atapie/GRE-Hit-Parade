@@ -275,7 +275,12 @@ bool TestScene::initMultiChoice(const std::string& word, bool showTerm)
     this->showNext = false;
     this->answerChoice = -1;
     this->mode = TestMode::MULTIPLE_CHOICE;
+    this->multiChoiceShowTerm = showTerm;
     
+    if(!showTerm) {
+    	Constants::playText(word);
+    }
+
     return true;
 }
 
@@ -395,6 +400,8 @@ bool TestScene::initTrueFalse(const std::string& word)
     this->answerChoice = -1;
     this->mode = TestMode::TRUE_FALSE;
     
+    Constants::playText(word);
+
     return true;
 }
 
@@ -414,6 +421,12 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
             if(tag == 1) { // home
                 auto transition = TransitionSlideInL::create(0.25f, HelloWorld::createScene());
                 Director::getInstance()->replaceScene(transition);
+            } else if(tag == 1000) {
+            	if(mode == TestMode::FILL_IN) {
+            		Constants::playText(((ui::EditBox*)this->getChildByTag(5))->getName());
+            	} else if(mode == TestMode::MULTIPLE_CHOICE) {
+            		Constants::playText(((ui::Button*)this->getChildByTag(10+correctAnswer))->getTitleText());
+            	}
             } else if(tag >= 10 && tag <= 13) {
                 int choice = tag % 10;
                 if(choice == answerChoice) return;
@@ -425,6 +438,9 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 if(mode == TestMode::MULTIPLE_CHOICE) {
                     ((ui::Button*)this->getChildByTag(12))->loadTextureNormal(tag != 12 ? "ChoiceBg" : "ChoiceSelectedBg", ui::Widget::TextureResType::PLIST);
                     ((ui::Button*)this->getChildByTag(13))->loadTextureNormal(tag != 13 ? "ChoiceBg" : "ChoiceSelectedBg", ui::Widget::TextureResType::PLIST);
+                    if(multiChoiceShowTerm) {
+                    	Constants::playText(((ui::Button*)pSender)->getTitleText());
+                    }
                 }
                 ((ui::Button*)this->getChildByTag(99))->setEnabled(true);
                 ((ui::Button*)this->getChildByTag(99))->setBright(true);
@@ -453,8 +469,13 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto label = Label::createWithBMFont(correct ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(correct? Vec2::ANCHOR_MIDDLE_LEFT : Vec2::ANCHOR_BOTTOM_LEFT);
-                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
+                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 + (correct? 3 : 0)));
                     badge->addChild(label);
+                    auto playBtn = ui::Button::create(correct? "BtnPlayText":"BtnPlayText2", correct? "BtnPlayText":"BtnPlayText2", "", ui::Widget::TextureResType::PLIST);
+                    playBtn->setAnchorPoint(Vec2::ANCHOR_BOTTOM_RIGHT);
+					playBtn->setPosition(Vec2(badgeBg->getContentSize().width - 9, 4));
+                    playBtn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
+                    badge->addChild(playBtn, 1000, 1000);
                     if(!correct) {
                         label = Label::createWithBMFont(Constants::FONT_REGULAR12, word);
                         label->setColor(Color3B(245,23,50));
@@ -486,9 +507,16 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto label = Label::createWithBMFont(correct ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
+                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 + (correct? 3 : 0)));
                     badge->addChild(label, 2, 2);
                     if(!correct) {
+                    	if(multiChoiceShowTerm) {
+							auto playBtn = ui::Button::create("BtnPlayText2", "BtnPlayText2", "", ui::Widget::TextureResType::PLIST);
+							playBtn->setAnchorPoint(Vec2::ANCHOR_BOTTOM_RIGHT);
+							playBtn->setPosition(Vec2(badgeBg->getContentSize().width - 9, 4));
+							playBtn->addTouchEventListener(CC_CALLBACK_2(TestScene::touchEvent, this));
+							badge->addChild(playBtn, 1000, 1000);
+						}
                         float titleHeight = label->getContentSize().height - 2;
                         const std::string& s = ((ui::Button*)this->getChildByTag(10+correctAnswer))->getTitleText();
                         label = Label::createWithBMFont(Constants::FONT_REGULAR12, s);
@@ -528,7 +556,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto label = Label::createWithBMFont((correct && correctAnswer == 0) ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2));
+                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 + ((correct && correctAnswer == 0)? 3 : 0)));
                     badge->addChild(label, 2, 2);
                     if(correctAnswer == 1) {
                         float titleHeight = label->getContentSize().height - 2;

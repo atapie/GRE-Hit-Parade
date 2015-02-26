@@ -33,6 +33,9 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import com.google.android.gms.ads.*;
 import com.joto.grehit.R;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.widget.Toast;
@@ -103,5 +106,38 @@ public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 	        	((AppActivity)AppActivity.getContext()).showInterstitialAd();
 	        }
 	    });
+	}
+	
+	public static void openInAppStore() {
+		try {
+			String myApp = ((AppActivity)getContext()).getPackageName();
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			
+			// Try Amazon Store
+			intent.setData(Uri.parse("amzn://apps/android?p=" + myApp));
+			if (runActivity(intent)) return;
+			
+			// Try Google play
+			intent.setData(Uri.parse("market://details?id=" + myApp));
+			if (runActivity(intent)) return;
+			
+			// Try Browser
+	        intent.setData(Uri.parse("http://play.google.com/store/apps/details?id=" + myApp));
+	        runActivity(intent);
+		} catch(Exception e) {
+			//TODO handle open in store exception
+		}
+	}
+	
+	private static boolean runActivity(Intent intent) {
+		try
+	    {
+			((AppActivity)getContext()).startActivity(intent);
+	        return true;
+	    }
+	    catch (ActivityNotFoundException e)
+	    {
+	        return false;
+	    }
 	}
 }

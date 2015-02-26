@@ -20,7 +20,7 @@
             <key>BtnBluePressed</key>
             <dict>
                 <key>frame</key>
-                <string>{{579,50},{34,63}}</string>
+                <string>{{601,50},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>BtnNormal</key>
             <dict>
                 <key>frame</key>
-                <string>{{650,50},{34,63}}</string>
+                <string>{{672,50},{34,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -55,6 +55,32 @@
                 <string>{{0,0},{34,63}}</string>
                 <key>sourceSize</key>
                 <string>{34,63}</string>
+            </dict>
+            <key>BtnPlayText</key>
+            <dict>
+                <key>frame</key>
+                <string>{{576,64},{17,20}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{17,20}}</string>
+                <key>sourceSize</key>
+                <string>{17,20}</string>
+            </dict>
+            <key>BtnPlayText2</key>
+            <dict>
+                <key>frame</key>
+                <string>{{842,8},{17,20}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{17,20}}</string>
+                <key>sourceSize</key>
+                <string>{17,20}</string>
             </dict>
             <key>BtnPressed</key>
             <dict>
@@ -72,7 +98,7 @@
             <key>ChoiceBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{760,50},{31,31}}</string>
+                <string>{{764,8},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +111,7 @@
             <key>ChoiceCorrectBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{764,8},{31,31}}</string>
+                <string>{{782,47},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +124,7 @@
             <key>ChoiceSelectedBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{799,47},{31,31}}</string>
+                <string>{{803,8},{31,31}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +176,7 @@
             <key>InputFieldBg</key>
             <dict>
                 <key>frame</key>
-                <string>{{721,50},{31,39}}</string>
+                <string>{{743,50},{31,39}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -202,7 +228,7 @@
             <key>TextArea</key>
             <dict>
                 <key>frame</key>
-                <string>{{803,8},{30,30}}</string>
+                <string>{{821,47},{30,30}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -220,9 +246,9 @@
             <key>realTextureFileName</key>
             <string>assets.pvr.ccz</string>
             <key>size</key>
-            <string>{841,101}</string>
+            <string>{867,101}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:abc0914bfa8a8ea76d0abdc2aaab021d:92292680c332c724df746e99d1f762a0:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
+            <string>$TexturePacker:SmartUpdate:20376f0be405906e9131b11d0ea17cd0:265d0705ebd7df5e8f2861122536a745:2a906fd2f5f1ecbcad642f2d09d221d1$</string>
             <key>textureFileName</key>
             <string>assets.pvr.ccz</string>
         </dict>

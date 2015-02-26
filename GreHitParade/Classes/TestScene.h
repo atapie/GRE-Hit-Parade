@@ -22,6 +22,7 @@ class TestScene : public cocos2d::LayerColor, public cocos2d::ui::EditBoxDelegat
 {
 private:
     TestMode mode;
+    bool multiChoiceShowTerm;
     time_t startTime;
     bool showNext;
     int correctAnswer;
