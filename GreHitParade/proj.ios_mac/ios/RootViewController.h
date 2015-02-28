@@ -35,7 +35,7 @@
 - (void) preloadData;
 
 - (GADInterstitial *)createAndLoadInterstitial;
-- (void) showAd;
+- (BOOL) showAd;
 
 - (void) textSynthesis:(NSString*)text;
 - (BOOL) prefersStatusBarHidden;

@@ -446,8 +446,10 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 ((ui::Button*)this->getChildByTag(99))->setBright(true);
             } else if(tag == 99) { // check
                 if(showNext) {
-                    auto transition = TransitionSlideInR::create(0.25f, TestScene::createScene());
-                    Director::getInstance()->replaceScene(transition);
+                    if(!Constants::showAd()) {
+                        auto transition = TransitionSlideInR::create(0.25f, TestScene::createScene());
+                        Director::getInstance()->replaceScene(transition);
+                    }
                 } else if(mode == TestMode::FILL_IN) {
                     // check answer
                     ui::EditBox* editBox = (ui::EditBox*)this->getChildByTag(5);
@@ -491,7 +493,6 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     editBox->setEnabled(false);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
-                    Constants::showAd();
                 } else if(mode == TestMode::MULTIPLE_CHOICE) {
                     bool correct = answerChoice == correctAnswer;
                     time_t currTime = time(0);
@@ -540,7 +541,6 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     ((ui::Button*)this->getChildByTag(10+correctAnswer))->loadTextureNormal("ChoiceCorrectBg", ui::Widget::TextureResType::PLIST);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
-                    Constants::showAd();
                 } else if(mode == TestMode::TRUE_FALSE) {
                     bool correct = answerChoice == correctAnswer;
                     time_t currTime = time(0);
@@ -556,7 +556,7 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     auto label = Label::createWithBMFont((correct && correctAnswer == 0) ? Constants::FONT_BOLD24 : Constants::FONT_BOLD16, correct? "You are correct" : "Oops, that's not correct");
                     label->setColor(correct? Color3B(80,143,6) : Color3B(245,23,50));
                     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 + ((correct && correctAnswer == 0)? 3 : 0)));
+                    label->setPosition(Vec2(14, badgeBg->getContentSize().height/2 + (correctAnswer == 0? correct? 3 : 2 : 0)));
                     badge->addChild(label, 2, 2);
                     if(correctAnswer == 1) {
                         float titleHeight = label->getContentSize().height - 2;
@@ -581,7 +581,6 @@ void TestScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     ((ui::Button*)this->getChildByTag(10+correctAnswer))->loadTextureNormal("ChoiceCorrectBg", ui::Widget::TextureResType::PLIST);
                     ((ui::Button*)this->getChildByTag(99))->setTitleText("Continue");
                     showNext = true;
-                    Constants::showAd();
                 }
             }
             break;

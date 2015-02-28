@@ -30,9 +30,6 @@ import java.util.Locale;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-import com.google.android.gms.ads.*;
-import com.joto.grehit.R;
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -40,29 +37,41 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.joto.grehit.R;
+
 public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 	private static TextToSpeech myTTS = null;
 	private static boolean ttsAvailable = false;
 	
 	// Ads
 	private InterstitialAd interstitial = null;
+	private boolean interstitialLoaded = false;
+	private final Object interstitialLock = new Object();
 	private void reloadInterstitialAd() {
-		interstitial = new InterstitialAd(this);
-	    interstitial.setAdUnitId(getString(R.string.banner_ad_unit_id));
-	    interstitial.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-            	reloadInterstitialAd();
-            }
-        });
+		synchronized(interstitialLock) {
+			interstitialLoaded = false;
+			interstitial = new InterstitialAd(this);
+		    interstitial.setAdUnitId(getString(R.string.banner_ad_unit_id));
+		    interstitial.setAdListener(new AdListener() {
+		    	@Override
+		    	public void onAdLoaded() {
+		    		synchronized(interstitialLock) {
+		    			if(this == interstitial.getAdListener()) interstitialLoaded = true;
+		    		}
+		    	}
+	            @Override
+	            public void onAdClosed() {
+	            	reloadInterstitialAd();
+	            }
+	        });
 
-	    AdRequest.Builder builder = new AdRequest.Builder();
-	    //builder.addTestDevice("84E2034CD7B59DA216F81F5FEEFA476C");
-	    interstitial.loadAd(builder.build());
-	}
-	public void showInterstitialAd() {
-		if(interstitial.isLoaded()) interstitial.show();
-		else reloadInterstitialAd();
+		    AdRequest.Builder builder = new AdRequest.Builder();
+		    //builder.addTestDevice("84E2034CD7B59DA216F81F5FEEFA476C");
+		    interstitial.loadAd(builder.build());
+		}
 	}
 	
 	@Override
@@ -97,15 +106,30 @@ public class AppActivity extends Cocos2dxActivity implements OnInitListener {
 		}
 	}
 	
-	public static void showAd() {
-		((AppActivity)getContext()).runOnUiThread(new Runnable()
-	    {
-	        @Override
-	        public void run()
-	        {
-	        	((AppActivity)AppActivity.getContext()).showInterstitialAd();
-	        }
-	    });
+	public static boolean showAd() {
+		final AppActivity aa = (AppActivity)getContext();
+		synchronized(aa.interstitialLock) {
+			if(aa.interstitialLoaded) {
+				aa.runOnUiThread(new Runnable() {
+			        @Override
+			        public void run() {
+			        	synchronized(aa.interstitialLock) {
+			        		aa.interstitialLoaded = false;
+			        		aa.interstitial.show();
+			        	}
+			        }
+			    });
+				return true;
+			} else {
+				aa.runOnUiThread(new Runnable() {
+			        @Override
+			        public void run() {
+			        	aa.reloadInterstitialAd();
+			        }
+			    });
+				return false;
+			}
+		}
 	}
 	
 	public static void openInAppStore() {

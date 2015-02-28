@@ -170,8 +170,10 @@ void LearnScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                 ((ui::Button*)this->getChildByTag(7))->setBright(true);
             } else if(tag == 7) { // check
                 if(showNext) {
-                    auto transition = TransitionSlideInR::create(0.25f, LearnScene::createScene());
-                    Director::getInstance()->replaceScene(transition);
+                    if(!Constants::showAd()) {
+                        auto transition = TransitionSlideInR::create(0.25f, LearnScene::createScene());
+                        Director::getInstance()->replaceScene(transition);
+                    }
                 } else {
                     auto termLabel = ((Label*)this->getChildByTag(4)->getChildByTag(1));
                     auto defLabel = ((Label*)this->getChildByTag(4)->getChildByTag(2));
@@ -190,7 +192,6 @@ void LearnScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
                     
                     // update vars
                     showNext = true;
-                    Constants::showAd();
                 }
             }
             break;

@@ -14,9 +14,9 @@ void ObjCCalls::playSound(const char *text)
     [(RootViewController*)[UIApplication sharedApplication].keyWindow.rootViewController textSynthesis:[NSString stringWithUTF8String:text]];
 }
 
-void ObjCCalls::showAd()
+bool ObjCCalls::showAd()
 {
-    [(RootViewController*)[UIApplication sharedApplication].keyWindow.rootViewController showAd];
+    return [(RootViewController*)[UIApplication sharedApplication].keyWindow.rootViewController showAd];
 }
 
 void ObjCCalls::openInAppStore()

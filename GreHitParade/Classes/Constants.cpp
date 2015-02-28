@@ -367,21 +367,23 @@ void Constants::playText(const std::string& text)
 #endif
 }
 
-void Constants::showAd()
+bool Constants::showAd()
 {
     time_t currTime = time(0);
     if(currTime - lastShowAdTime > 300 && currTime - appEnterForegroundTime > 90) {
         lastShowAdTime = currTime;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        ObjCCalls::showAd();
+        return ObjCCalls::showAd();
 #elif CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-    JniMethodInfo methodInfo;
-    if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "showAd", "()V")) {
-        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
-        methodInfo.env->DeleteLocalRef(methodInfo.classID);
-    }
+		JniMethodInfo methodInfo;
+		if (JniHelper::getStaticMethodInfo(methodInfo, "org.cocos2dx.cpp.AppActivity", "showAd", "()Z")) {
+			jboolean result = methodInfo.env->CallStaticBooleanMethod(methodInfo.classID, methodInfo.methodID);
+			methodInfo.env->DeleteLocalRef(methodInfo.classID);
+			return result;
+		}
 #endif
     }
+    return false;
 }
 
 void Constants::openInAppStore()

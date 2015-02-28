@@ -48,12 +48,14 @@
     return interstitial;
 }
 
-- (void)showAd
+- (BOOL)showAd
 {
     if ([self.interstitial isReady]) {
         [self.interstitial presentFromRootViewController:self];
+        return YES;
     } else {
         self.interstitial = [self createAndLoadInterstitial];
+        return NO;
     }
 }
 
