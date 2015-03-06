@@ -36,7 +36,7 @@ const string Constants::FONT_SYSTEM = "Helvetica Neue";
 const Color4B Constants::BACKGROUND_COLOR(231, 240, 211, 255);
 
 // show ad time
-time_t Constants::lastShowAdTime = time(0);
+time_t Constants::lastShowAdTime = 0;
 time_t Constants::appEnterForegroundTime = time(0);
 
 // static functions
