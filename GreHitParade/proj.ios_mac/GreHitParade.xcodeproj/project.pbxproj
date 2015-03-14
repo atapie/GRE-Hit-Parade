@@ -47,6 +47,7 @@
 		C031042C1A89ECE300776A03 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042B1A89ECE300776A03 /* MessageUI.framework */; };
 		C031042E1A89ECEB00776A03 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042D1A89ECEB00776A03 /* StoreKit.framework */; };
 		C03104301A89ECF500776A03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C031042F1A89ECF500776A03 /* SystemConfiguration.framework */; };
+		C04638681AB17A6F00FC53D4 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04638671AB17A6F00FC53D4 /* FBAudienceNetwork.framework */; };
 		C07FAEE21A7B301300826AB5 /* HD in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEDF1A7B301300826AB5 /* HD */; };
 		C07FAEE31A7B301300826AB5 /* HD in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEDF1A7B301300826AB5 /* HD */; };
 		C07FAEE41A7B301300826AB5 /* HDR in Resources */ = {isa = PBXBuildFile; fileRef = C07FAEE01A7B301300826AB5 /* HDR */; };
@@ -57,6 +58,11 @@
 		C07FAEEB1A7B311200826AB5 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C07FAEE81A7B311200826AB5 /* Constants.cpp */; };
 		C081391E1A849A5E00D85C23 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C081391C1A849A5E00D85C23 /* TestScene.cpp */; };
 		C081391F1A849A5E00D85C23 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C081391C1A849A5E00D85C23 /* TestScene.cpp */; };
+		C087F6241AB33C3D00D177D9 /* libAdapterFacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C087F6231AB33C3D00D177D9 /* libAdapterFacebook.a */; };
+		C087F6261AB340C500D177D9 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C087F6251AB340C500D177D9 /* GameController.framework */; };
+		C087F6281AB3419900D177D9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C087F6271AB3419900D177D9 /* MediaPlayer.framework */; };
+		C087F62A1AB3486900D177D9 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C087F6291AB3486900D177D9 /* libAdapterIAd.a */; };
+		C087F62C1AB3493400D177D9 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C087F62B1AB3493400D177D9 /* iAd.framework */; };
 		C0966BA61A7F58FC006A7ED0 /* LearnScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0966BA41A7F58FB006A7ED0 /* LearnScene.cpp */; };
 		C0966BA71A7F58FC006A7ED0 /* LearnScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0966BA41A7F58FB006A7ED0 /* LearnScene.cpp */; };
 		C0AF2BB51A82025600EA9597 /* ObjCCalls.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0AF2BB41A82025600EA9597 /* ObjCCalls.mm */; };
@@ -143,6 +149,7 @@
 		C031042B1A89ECE300776A03 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		C031042D1A89ECEB00776A03 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		C031042F1A89ECF500776A03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		C04638671AB17A6F00FC53D4 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = ../../../../../FacebookSDK/FBAudienceNetwork.framework; sourceTree = "<group>"; };
 		C07FAEDF1A7B301300826AB5 /* HD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HD; sourceTree = "<group>"; };
 		C07FAEE01A7B301300826AB5 /* HDR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HDR; sourceTree = "<group>"; };
 		C07FAEE11A7B301300826AB5 /* SD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SD; sourceTree = "<group>"; };
@@ -150,6 +157,11 @@
 		C07FAEE91A7B311200826AB5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C081391C1A849A5E00D85C23 /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScene.cpp; sourceTree = "<group>"; };
 		C081391D1A849A5E00D85C23 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		C087F6231AB33C3D00D177D9 /* libAdapterFacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterFacebook.a; path = "../../../../../../Downloads/framework/LibAdapterFacebook-1.1.0/LibAdapterFacebook-1.1.0/libAdapterFacebook.a"; sourceTree = "<group>"; };
+		C087F6251AB340C500D177D9 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		C087F6271AB3419900D177D9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		C087F6291AB3486900D177D9 /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterIAd.a; path = "../../../../../../Downloads/framework/LibAdapterIAd-1.0.0/libAdapterIAd.a"; sourceTree = "<group>"; };
+		C087F62B1AB3493400D177D9 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/iAd.framework; sourceTree = DEVELOPER_DIR; };
 		C0966BA41A7F58FB006A7ED0 /* LearnScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LearnScene.cpp; sourceTree = "<group>"; };
 		C0966BA51A7F58FC006A7ED0 /* LearnScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LearnScene.h; sourceTree = "<group>"; };
 		C0AF2BAF1A82002400EA9597 /* ObjCCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjCCalls.h; path = ios/ObjCCalls.h; sourceTree = SOURCE_ROOT; };
@@ -168,9 +180,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C087F62C1AB3493400D177D9 /* iAd.framework in Frameworks */,
+				C087F6281AB3419900D177D9 /* MediaPlayer.framework in Frameworks */,
+				C087F6261AB340C500D177D9 /* GameController.framework in Frameworks */,
 				C03104301A89ECF500776A03 /* SystemConfiguration.framework in Frameworks */,
 				C031042E1A89ECEB00776A03 /* StoreKit.framework in Frameworks */,
+				C087F62A1AB3486900D177D9 /* libAdapterIAd.a in Frameworks */,
 				C031042C1A89ECE300776A03 /* MessageUI.framework in Frameworks */,
+				C04638681AB17A6F00FC53D4 /* FBAudienceNetwork.framework in Frameworks */,
 				C03104291A89ECC600776A03 /* EventKit.framework in Frameworks */,
 				C031042A1A89ECC600776A03 /* EventKitUI.framework in Frameworks */,
 				C03104261A89ECBA00776A03 /* CoreTelephony.framework in Frameworks */,
@@ -184,6 +201,7 @@
 				C03104221A89EC5A00776A03 /* GoogleMobileAds.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
+				C087F6241AB33C3D00D177D9 /* libAdapterFacebook.a in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
@@ -263,6 +281,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C087F62B1AB3493400D177D9 /* iAd.framework */,
+				C087F6291AB3486900D177D9 /* libAdapterIAd.a */,
+				C087F6271AB3419900D177D9 /* MediaPlayer.framework */,
+				C087F6251AB340C500D177D9 /* GameController.framework */,
+				C087F6231AB33C3D00D177D9 /* libAdapterFacebook.a */,
+				C04638671AB17A6F00FC53D4 /* FBAudienceNetwork.framework */,
 				C03104211A89EC5A00776A03 /* GoogleMobileAds.framework */,
 				C031042F1A89ECF500776A03 /* SystemConfiguration.framework */,
 				C031042D1A89ECEB00776A03 /* StoreKit.framework */,
@@ -540,6 +564,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/lamthai/Documents/FacebookSDK,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -559,7 +584,11 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/lamthai/Downloads/framework/LibAdapterFacebook-1.1.0/LibAdapterFacebook-1.1.0",
+					"/Users/lamthai/Downloads/framework/LibAdapterIAd-1.0.0",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GRE Hit Parade";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -580,6 +609,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/lamthai/Documents/FacebookSDK,
 				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -597,7 +627,11 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/lamthai/Downloads/framework/LibAdapterFacebook-1.1.0/LibAdapterFacebook-1.1.0",
+					"/Users/lamthai/Downloads/framework/LibAdapterIAd-1.0.0",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "GRE Hit Parade";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

@@ -30,11 +30,12 @@
 @interface RootViewController : UIViewController <GADInterstitialDelegate> {
     AVSpeechSynthesizer *synthesizer;
 }
-@property(nonatomic, strong) GADInterstitial *interstitial;
+@property(nonatomic, strong) GADInterstitial *googleAd;
 
 - (void) preloadData;
 
-- (GADInterstitial *)createAndLoadInterstitial;
+- (GADInterstitial*)google_createAndLoadInterstitial;
+- (void) loadAd;
 - (BOOL) showAd;
 
 - (void) textSynthesis:(NSString*)text;

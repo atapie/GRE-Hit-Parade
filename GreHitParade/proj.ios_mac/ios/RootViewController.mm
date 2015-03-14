@@ -37,30 +37,36 @@
         [synthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryWord];
     }
     
-    self.interstitial = [self createAndLoadInterstitial];
+    [self loadAd];
 }
 
-- (GADInterstitial *)createAndLoadInterstitial {
+- (GADInterstitial*)google_createAndLoadInterstitial {
     GADInterstitial *interstitial = [[GADInterstitial alloc] init];
-    interstitial.adUnitID = @"ca-app-pub-3395205221669894/4905527166";
+    interstitial.adUnitID = @"ca-app-pub-3395205221669894/7664603166";
     interstitial.delegate = self;
-    [interstitial loadRequest:[GADRequest request]];
+    GADRequest *request = [GADRequest request];
+    //request.testDevices = @[ @"7210761dff77970bf9d6ebfcf8d042a2" ];
+    [interstitial loadRequest:request];
     return interstitial;
+}
+
+- (void)loadAd {
+    self.googleAd = [self google_createAndLoadInterstitial];
 }
 
 - (BOOL)showAd
 {
-    if ([self.interstitial isReady]) {
-        [self.interstitial presentFromRootViewController:self];
+    if ([self.googleAd isReady]) {
+        [self.googleAd presentFromRootViewController:self];
         return YES;
     } else {
-        self.interstitial = [self createAndLoadInterstitial];
+        [self loadAd];
         return NO;
     }
 }
 
 - (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
-    self.interstitial = [self createAndLoadInterstitial];
+    [self loadAd];
 }
 
 - (void)textSynthesis:(NSString*)text
