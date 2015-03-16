@@ -9,8 +9,5 @@
 	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/AdapterFacebookAndroid-1.1.0/AdapterFacebookAndroid-1.1.0/FacebookAdapter.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/facebook-android-sdk-3.23.1/AudienceNetwork/bin/AudienceNetwork.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/AndroidDev/sdk/extras/android/support/v4/android-support-v4.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/mmedia_android_5_3_0_sdk/libs/MMSDK.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/mmedia_android_5_3_0_sdk/libs/nmdp_speech_kit.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/lamthai/Downloads/framework/mmedia_android_admob_adapter_1_6_0/MMAdMobAdapter_1_6_0.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
